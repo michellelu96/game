@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+html {background-image: url('https://img.finalfantasyxiv.com/lds/promo/h/M/xRfPaGRwUih5gCM0FcNvQJSevw.png');}
+
+.buttonsize{
+  width: 100px;
+  align-content: center;
+}
+
+body{
+  background-image: url('https://img.finalfantasyxiv.com/lds/promo/h/M/xRfPaGRwUih5gCM0FcNvQJSevw.png')
+}

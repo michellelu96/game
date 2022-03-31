@@ -1,0 +1,41 @@
+
+
+.navbar{
+    background-color: #36454F ;
+    color: white;
+}
+.background{
+    background-color: black;
+    color: white;
+}
+
+.container{
+    background-color: black;
+
+}
+
+.linkcolor{
+    text-decoration: none;
+    color:#F88379;
+}
+
+.cardbodycolor{
+    background-color:#36454F ;
+}
+
+select,input,textarea{
+    width:100%;
+    box-sizing:border-box;
+}
+
+.cardmargins{
+    margin-top: 15px;
+}
+
+.carouselimages{
+    height: 627.756px;
+    width: 1116.02px;;
+}
+.carouseltext{
+    color:#F88379;
+}
