@@ -15,16 +15,16 @@ const Home = () => {
             .catch(err => console.log(err))
     }, [])
 
-    const deleteGame = (id) => {
-        axios.delete("http://localhost:8000/api/game/delete/" + id)
-            .then(res => {
-                console.log(res.data)
-                console.log("SUCCESS DELETE");
-                setAllGames(allGames.filter((game) => game._id !== id))
-                history.push('/')
-            })
-            .catch(err => console.log(err))
-    }
+    // const deleteGame = (id) => {
+    //     axios.delete("http://localhost:8000/api/game/delete/" + id)
+    //         .then(res => {
+    //             console.log(res.data)
+    //             console.log("SUCCESS DELETE");
+    //             setAllGames(allGames.filter((game) => game._id !== id))
+    //             history.push('/')
+    //         })
+    //         .catch(err => console.log(err))
+    // }
 
     return (
         <>
