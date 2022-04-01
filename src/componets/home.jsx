@@ -7,27 +7,20 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const Home = () => {
     const [allGames, setAllGames] = useState([]);
-    const history = useHistory();
+    const [threeItems, setThreeItems] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:8000/api')
-            .then(res => setAllGames(res.data))
+            .then(res => {
+                setAllGames(res.data)
+                setThreeItems(res.data.slice(-3))
+            })
             .catch(err => console.log(err))
     }, [])
 
-    // const deleteGame = (id) => {
-    //     axios.delete("http://localhost:8000/api/game/delete/" + id)
-    //         .then(res => {
-    //             console.log(res.data)
-    //             console.log("SUCCESS DELETE");
-    //             setAllGames(allGames.filter((game) => game._id !== id))
-    //             history.push('/')
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-
     return (
         <>
+        {/* the navbar! */}
             <div className='container background'>
                 <div>
                     <ul className="nav justify-content-center navbar">
@@ -45,44 +38,27 @@ const Home = () => {
                 <h1>Reviewed Games:</h1>
                <div>
                 <Carousel fade>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100 carouselimages"
-                            src={`http://localhost:8000/image/020e3152-4c59-4a48-9a4b-e6323a0ffa1b-1648593136057.jpg`}
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h3 className='carouseltext'>Genshin Impact</h3>
-                            <p className='carouseltext'>Rating : 8</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100 carouselimages"
-                            src={`http://localhost:8000/image/3a2a3b59-6fcf-4166-bc9c-88419f06c812-1648709791934.jpg`}
-                            alt="Second slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3 className='carouseltext'>Final Fantasty XIV</h3>
-                            <p className='carouseltext'>Rating: 9</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100 carouselimages"
-                            src={`http://localhost:8000/image/0181afe7-ad42-4129-8ea4-eff291f67d83-1648708622601.jpg`}
-                            alt="Third slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3 className='carouseltext'>Monster Hunter:World</h3>
-                            <p className='carouseltext'>Rating: 9</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                    {/* carousel with three last items in it */}
+                {
+                        threeItems.map((games, key) => {
+                            return (
+                                <Carousel.Item key ={key}>
+                                <Link className="linkcolor" to={`/game/${games._id}`}><img
+                                    className="d-block w-100 carouselimages"
+                                    src={`http://localhost:8000/image/${games.image}`}
+                                    alt="First slide"
+                                /></Link>
+                                <Carousel.Caption>
+                                    <h3 className='carouseltext'> <Link className="linkcolor" to={`/game/${games._id}`}>{games.name}</Link></h3>
+                                    <p className='carouseltext'>Rating: {games.rating}</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            )
+                        })
+                    }
                 </Carousel>
                 <div className="d-flex  flex-wrap justify-content-around">
-
+                    {/* map all items in the database into a card */}
                     {
                         allGames.map((game, key) => {
                             return (
@@ -91,7 +67,6 @@ const Home = () => {
                                     <div className="card-body cardbodycolor">
                                         <Link to={`/game/${game._id}`} className="linkcolor"><h5 className="card-title">{game.name}</h5></Link>
                                         <p className="card-text">My Current Rating: {game.rating}</p>
-                                        {/* <button onClick={() => deleteGame(game._id)}>Delete</button> */}
                                     </div>
                                 </div>
                             )

@@ -22,7 +22,7 @@
 .cardbodycolor{
     background-color:#36454F ;
 }
-
+/* so that all of them are the same size */
 select,input,textarea{
     width:100%;
     box-sizing:border-box;

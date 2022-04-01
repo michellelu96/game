@@ -26,11 +26,6 @@ const Form = () => {
                 history.push('/')
             })
             .catch(err => {
-                // const { errors } = err.response.data;
-                // console.log(errors);
-                // const messages = Object.keys(errors).map(error => errors[error].message)
-                // console.log(messages);
-                // setErrors(messages);
                 console.log(err)
             })
 
@@ -61,8 +56,8 @@ const Form = () => {
                 <div className="d-flex flex-column justify-content-around">
                     <h1>Add a New Game:</h1>
                     <>
-                        {/* {errors.map((err, index) => <p style={{ color: "red" }} key={index}>{err}</p>)} */}
                     </>
+                    {/* needs encType for multer to get info! do not take out, validations are from bootstrap */}
                     <form onSubmit={handleSubmit} encType="multipart/form-data" className="needs-validation" novalidate>
                         <div className="p-2 bd-highlight">
                             <label htmlFor="name">Name:</label>
@@ -82,15 +77,6 @@ const Form = () => {
                                 onChange={handlePhoto}
                                 required/>
                         </div>
-                        {/* <div className="p-2 bd-highlight">
-                            <label htmlFor="image">Image:</label>
-                            <input
-                                type="file"
-                                accept=".png, .jpg, .jpeg"
-                                name="image"
-                                onChange={handlePhoto}
-                                required />
-                        </div> */}
                         <div className="p-2 bd-highlight">
                             <label htmlFor="rating">Rating:</label>
                             <input

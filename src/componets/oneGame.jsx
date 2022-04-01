@@ -29,6 +29,7 @@ const OneGame = () => {
 
     return (
         <>
+        {/* navbar */}
         <div className="container background">
             <div>
                 <ul className=" d-flex nav justify-content-center navbar">
@@ -50,6 +51,7 @@ const OneGame = () => {
                 </ul>
             </div>
             <div >
+                {/* things that are in the item */}
                 <div className="row">
                     <img className="col rounded float-start" height="400px" width="400px" src={`http://localhost:8000/image/${oneGame.image}`} alt={oneGame.name}></img>
                     <h1 className="col">{oneGame.name}</h1>

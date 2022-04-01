@@ -37,11 +37,6 @@ const EditForm = () => {
                 history.push('/')
             })
             .catch(err => {
-                // const { errors } = err.response.data;
-                // console.log(errors);
-                // const messages = Object.keys(errors).map(error => errors[error].message)
-                // console.log(messages);
-                // setErrors(messages);
                 console.log(err)
                 console.log("error")
             })
@@ -52,9 +47,6 @@ const EditForm = () => {
         setNewGame({ ...newGame, [e.target.name]: e.target.value });
     }
 
-    // const handleRaing = (e) => {
-    //     setNewGame({ ...newGame, [e.target.image]: e.target.value });
-    // }
 
     const handlePhoto = (e) => {
         setNewGame({ ...newGame, image: e.target.files[0] });
@@ -79,8 +71,8 @@ const EditForm = () => {
                 <div className="d-flex flex-column justify-content-around">
                     <h1>Edit Game Review:</h1>
                     <>
-                        {/* {errors.map((err, index) => <p style={{ color: "red" }} key={index}>{err}</p>)} */}
                     </>
+                    {/* needs encType for multer to get info! do not take out, validations are from bootstrap */}
                     <form onSubmit={handleSubmit} encType="multipart/form-data" className="needs-validation" novalidate>
                     <div className="p-2 bd-highlight">
                             <label htmlFor="name">Name:</label>
